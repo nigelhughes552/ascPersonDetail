@@ -1,23 +1,216 @@
 <template>
     <div>
-  <h6>Large</h6>
-    <b-pagination size="sm"  v-model="currentPage" >
+  
+    <b-pagination size="sm" >
     </b-pagination>
-         <div class="col-md-12">
-                    <div id="tree" class="treeview">
-                      <ul class="list-group"><li class="list-group-item node-tree node-selected" data-nodeid="0" 
-                      style="color:#FFFFFF;background-color:#428bca;">
-                      <span class="icon glyphicon"></span><span class="icon node-icon"></span>
-                      Overview</li><li class="list-group-item node-tree" data-nodeid="1" 
-                      style="color:undefined;background-color:undefined;">
-                      <span class="icon expand-icon glyphicon glyphicon-chevron-down"></span><span class="icon node-icon"></span>
-                      Detail</li><li class="list-group-item node-tree" data-nodeid="2" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Name</li><li class="list-group-item node-tree" data-nodeid="3" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Summary</li><li class="list-group-item node-tree" data-nodeid="4" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Contact Information</li><li class="list-group-item node-tree" data-nodeid="5" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Subjects</li><li class="list-group-item node-tree" data-nodeid="6" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Images</li><li class="list-group-item node-tree" data-nodeid="7" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Post-nominals</li><li class="list-group-item node-tree" data-nodeid="8" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Files</li><li class="list-group-item node-tree" data-nodeid="9" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Rights</li><li class="list-group-item node-tree" data-nodeid="10" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Historic Data</li><li class="list-group-item node-tree" data-nodeid="11" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Other</li><li class="list-group-item node-tree" data-nodeid="12" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon glyphicon"></span><span class="icon node-icon"></span>Assets</li><li class="list-group-item node-tree" data-nodeid="13" style="color:undefined;background-color:undefined;"><span class="icon expand-icon glyphicon glyphicon-chevron-right"></span><span class="icon node-icon"></span>Roles</li><li class="list-group-item node-tree" data-nodeid="17" style="color:undefined;background-color:undefined;"><span class="icon expand-icon glyphicon glyphicon-chevron-right"></span><span class="icon node-icon"></span>Background</li><li class="list-group-item node-tree" data-nodeid="22" style="color:undefined;background-color:undefined;"><span class="icon expand-icon glyphicon glyphicon-chevron-right"></span><span class="icon node-icon"></span>Research</li><li class="list-group-item node-tree" data-nodeid="25" style="color:undefined;background-color:undefined;"><span class="icon glyphicon"></span><span class="icon node-icon"></span>Associated People</li><li class="list-group-item node-tree" data-nodeid="26" style="color:undefined;background-color:undefined;"><span class="icon glyphicon"></span><span class="icon node-icon"></span>Deceased</li></ul></div>
-                </div>
+
+<v-treeview v-model="treeData" :treeTypes="treeTypes" ></v-treeview>
+       
     </div>
 </template>
 
 <script>
-export default {};
+//import BTreeView from "bootstrap-vue-treeview";
+
+//import bTreeView from "bootstrap-vue-treeview";
+import VTreeview from "v-treeview";
+//import BootstrapVueTreeview from "bootstrap-vue-treeview";
+
+export default {
+  components: {
+    VTreeview
+  },
+  data() {
+    return {
+      openAll: true,
+      treeTypes: [
+        {
+          type: "#",
+          max_children: 6,
+          max_depth: 4,
+          valid_children: [
+            "FMM_EMPLOYEE",
+            "FMM_SPOUSE",
+            "FMM_CHILD",
+            "FMM_SIBLING",
+            "FMM_PARENT",
+            "FMM_PARENT_IN_LAW"
+          ]
+        },
+        {
+          type: "FMM_EMPLOYEE",
+          icon: "far fa-user",
+          valid_children: ["Basic", "Top-up"]
+        },
+        {
+          type: "FMM_SPOUSE",
+          icon: "far fa-user",
+          valid_children: ["Basic", "Top-up"]
+        },
+        {
+          type: "FMM_CHILD",
+          icon: "far fa-user",
+          valid_children: ["Basic", "Top-up"]
+        },
+        {
+          type: "FMM_SIBLING",
+          icon: "far fa-user",
+          valid_children: ["Basic", "Top-up"]
+        },
+        {
+          type: "FMM_PARENT",
+          icon: "far fa-user",
+          valid_children: ["Basic", "Top-up"]
+        },
+        {
+          type: "FMM_PARENT_IN_LAW",
+          icon: "far fa-user",
+          valid_children: ["Basic", "Top-up"]
+        },
+        {
+          type: "Basic",
+          icon: "",
+          valid_children: ["Top-up"]
+        },
+        {
+          type: "Top-up",
+          icon: "far fa-plus-square",
+          valid_children: []
+        }
+      ],
+      treeData: [
+        {
+          id: 100767.0,
+          text: "Details",
+          type: "FMM_EMPLOYEE",
+          count: 0,
+          children: [
+            {
+              id: 100811.0,
+              text: "Name",
+              type: "Basic",
+              count: 0
+            },
+            {
+              id: 100812.0,
+              text: "Summary",
+              type: "Basic",
+              count: 0
+            },
+            {
+              id: 101162.0,
+              text: "This Top-up can be at level 2",
+              type: "Basic",
+              count: 152,
+              children: []
+            }
+          ]
+        },
+        {
+          id: 100768.0,
+          text: "Spouse",
+          type: "FMM_SPOUSE",
+          count: 0,
+          children: [
+            {
+              id: 100813.0,
+              text: "Basic plan",
+              type: "Basic",
+              count: 0,
+              children: [
+                {
+                  id: 101163.0,
+                  text: "Top-up",
+                  type: "Top-up",
+                  count: 152,
+                  children: []
+                }
+              ]
+            },
+            {
+              id: 100814.0,
+              text: "Basic plan",
+              type: "Basic",
+              count: 0,
+              children: [
+                {
+                  id: 101164.0,
+                  text: "Top-up",
+                  type: "Top-up",
+                  count: 152,
+                  children: []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 100769.0,
+          text: "Child",
+          type: "FMM_CHILD",
+          count: 0,
+          children: [
+            {
+              id: 100815.0,
+              text: "Basic plan",
+              type: "Basic",
+              count: 0,
+              children: [
+                {
+                  id: 101165.0,
+                  text: "Top-up",
+                  type: "Top-up",
+                  count: 152,
+                  children: []
+                }
+              ]
+            },
+            {
+              id: 100816.0,
+              text: "Basic plan",
+              type: "Basic",
+              count: 0,
+              children: [
+                {
+                  id: 101166.0,
+                  text: "Top-up",
+                  type: "Top-up",
+                  count: 0,
+                  children: []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 100770.0,
+          text: "Parents",
+          type: "FMM_PARENT",
+          count: 0,
+          children: [
+            {
+              id: 100817.0,
+              text: "Basic plan",
+              type: "Basic",
+              count: 0,
+              children: [
+                {
+                  id: 101167.0,
+                  text: "Top-up",
+                  type: "Top-up",
+                  count: 124,
+                  children: []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      contextItems: [],
+      selectedNode: null
+    };
+  }
+};
 </script>
 
 <style>
