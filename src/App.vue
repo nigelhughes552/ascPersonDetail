@@ -1,12 +1,44 @@
 <template>
   <div id="app">
-    <div id="nav">
+
+    <b-container fluid>
+  <b-row>
+
+    <b-col>
+         <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+       <router-link to="/details">Details</router-link>
     </div>
-    <router-view />
+      </b-col>>
+  </b-row>
+
+
+
+     <b-row>
+        <b-col  cols="2"><left-nav > </left-nav></b-col>
+        <b-col>   <router-view /></b-col>
+    </b-row>
+</b-container>
+
+
+ 
+ 
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import LeftNav from "@/components/LeftNav.vue";
+
+export default {
+  name: "home",
+  components: {
+    LeftNav
+  }
+};
+</script>
+
 
 <style lang="scss">
 #app {
