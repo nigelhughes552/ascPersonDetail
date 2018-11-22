@@ -1,38 +1,37 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
+  <div id="app">
 
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+    <b-container fluid>
+  <b-row>
+
+    <b-col>
+      
+      </b-col>
+  </b-row>
+
+     <b-row>
+        <b-col  cols="2">
+          <left-nav > </left-nav>
+          </b-col>
+        <b-col>   <router-view /></b-col>
+    </b-row>
+</b-container>
+
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+// @ is an alias to /src
+import LeftNav from "@/components/LeftNav.vue";
 
 export default {
-  name: 'App',
+  name: "home",
   components: {
-    HelloWorld
-  },
-  data () {
-    return {
-      //
-    }
+    LeftNav
   }
-}
+};
 </script>
+
+
+<style lang="scss">
+</style>

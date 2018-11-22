@@ -1,13 +1,14 @@
 <template>
-  <HelloWorld />
+    <div>
+        <b-card>
+            <b-card-body>Details</b-card-body>
+            </b-card>
+    </div>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
-
-  export default {
-    components: {
-      HelloWorld
-    }
-  }
+export default {};
 </script>
+
+<style>
+</style>
