@@ -6,10 +6,11 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import VueTreeNavigation from 'vue-tree-navigation';
-import NProgress from "nprogress";
+//import NProgress from "nprogress";
 import "../node_modules/nprogress/nprogress.css";
 
 Vue.use(VueTreeNavigation);
+//Vue.use(NProgress);
 
 Vue.config.productionTip = false;
 

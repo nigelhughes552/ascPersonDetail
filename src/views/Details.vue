@@ -14,7 +14,7 @@ export default {
   created() {
     NProgress.start();
     axios
-      .get("http://localhost/api/admin/getresearchtopics")
+      .get("http://localhost:61511/api/admin/getresearchtopics")
       .then(response => {
         console.log(response);
         //this.categories = response.data;

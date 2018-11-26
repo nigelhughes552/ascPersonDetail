@@ -20,8 +20,17 @@ export default {
           name: "Details",
           children: [
             { name: "Name", path: "name" },
-            { name: "Summary", path: "about" },
-            { name: "Contact Information", path: "details" }
+            { name: "Summary", path: "summary" },
+            { name: "Subjects", path: "subjects" },
+            { name: "Contact Information", path: "contact" },
+            { name: "Images", path: "images" },
+            { name: "Post-nominals", path: "post" },
+            { name: "Files", path: "files" },
+            { name: "Rights", path: "rights" },
+            { name: "Historic Data", path: "historic" },
+            { name: "Other", path: "other" },
+            { name: "Assets", path: "assets" },
+            { name: "Contact Information", path: "contact" }
           ]
         },
         {
