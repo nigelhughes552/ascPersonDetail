@@ -8,7 +8,6 @@
       
       </b-col>
   </b-row>
-
      <b-row>
         <b-col  cols="2">
           <left-nav > </left-nav>
