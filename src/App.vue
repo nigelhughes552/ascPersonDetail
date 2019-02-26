@@ -3,7 +3,6 @@
 
     <b-container fluid>
   <b-row>
-
     <b-col>
       
       </b-col>
